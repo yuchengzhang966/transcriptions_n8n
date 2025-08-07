@@ -1,0 +1,12 @@
+# Core libs
+torch==2.6.0            # latest stable (May 2025) :contentReference[oaicite:0]{index=0}
+transformers==4.54.1    # latest as of Jul 29 2025 :contentReference[oaicite:1]{index=1}
+
+# Audio handling
+librosa==0.10.2
+soundfile==0.12.1       # librosa dependency
+numpy==1.26.4
+
+# (Optional) speed-ups / quality of life
+accelerate>=0.30
+tqdm>=4.66

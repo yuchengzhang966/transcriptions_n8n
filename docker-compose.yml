@@ -1,0 +1,16 @@
+services:
+  n8n:
+    image: n8nio/n8n:latest
+    ports:
+      - "5678:5678"                    # browser → container
+    volumes:
+      - ./n8n_data:/home/node/.n8n     # keep workflows & creds
+      - /var/run/docker.sock:/var/run/docker.sock   # lets n8n run other Docker containers
+      - ./uploads:/app/uploads         # shared volume for file uploads
+      - ./outputs:/app/outputs         # shared volume for outputs
+    environment:
+      - GENERIC_TIMEZONE=America/Los_Angeles
+      - N8N_BASIC_AUTH_ACTIVE=true     # simple login gate
+      - N8N_BASIC_AUTH_USER=admin
+      - N8N_BASIC_AUTH_PASSWORD=strongpass
+    restart: unless-stopped
